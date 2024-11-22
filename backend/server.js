@@ -20,6 +20,20 @@ app.get('/users', async (req, res) => {
     }
 });
 
+app.get('/details/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const accountDetails = await knex('details').where({ user_id: id });
+        if (!accountDetails) {
+        return res.status(404).json({ message: 'Account details not found' });
+        }
+        res.json(accountDetails);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error getting account details', error });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
