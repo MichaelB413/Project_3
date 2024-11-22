@@ -34,6 +34,16 @@ app.get('/details/:id', async (req, res) => {
     }
 });
 
+app.get('/admin', async (req, res) => {
+    try {
+        const allUserInfo = await knex('details').select('*');
+        res.json(allUserInfo)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Error fetching all account balance information', error});
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

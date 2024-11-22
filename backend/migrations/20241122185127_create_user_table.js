@@ -4,9 +4,8 @@ exports.up = function (knex) {
         table.string('name').notNullable();
         table.string('email').unique().notNullable();
     });
- };
- 
- exports.down = function (knex) {
+};
+
+exports.down = function (knex) {
     return knex.schema.dropTableIfExists('users');
- };
- 
+};
