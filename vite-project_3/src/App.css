@@ -3,40 +3,96 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  border-radius: 200px;
+}
+@font-face {
+  font-family: "montolca";
+  src: url(./Fonts/Montvolca.ttf);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* @media {
+  background-image: "JCross1";
+  src: url(./Images/jCross1.png);
+} */
+
+
+body {
+  /* background-color: rgb(228, 241, 230); */
+  background: linear-gradient(rgb(75, 94, 81) 0%, rgb(5, 99, 2) 0%, rgb(12, 119, 8) 30%,  rgb(1, 35, 12) 100%);
+  background-image: jCross2;
+  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.title {
+  font-family: montolca;
+  align-items: center;
+  text-align: center;
+  font-weight: 900;
+  /* color: rgb(9, 139, 5); */
+  /* color:rgb(217, 229, 217); */
+  color: goldenrod;
+  text-shadow: 2px 3px 4px black;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.subtitle {
+  position: absolute;
+  align-items: center;
+  top: 42%;
+  left: 35%;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 80;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 0, 0);
 }
 
-.card {
-  padding: 2em;
+.row {
+  list-style-type: none;
+  column-gap: 90px;
+}
+.logIn {
+  padding: 10px;
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+  font-size: 2rem;
+  transform: rem;
+  background-color: rgb(67, 65, 68);
+
+  float: inline-end;
 }
 
-.read-the-docs {
-  color: #888;
+
+.createAccount {
+  padding: 10px;
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
+  font-size: 2rem;
+  transform: rem;
+  background-color: rgb(44, 43, 45);
+  /* float: inline-start; */
 }
+
+.info {
+  justify-content: space-evenly;
+  text-shadow: 1px 1px 1px black;
+  color: goldenrod;
+  display: flex;
+  margin-right: 0px;
+}
+
+.info *{
+  color: goldenrod
+}
+
+.about {
+  color: goldenrod
+}
+
