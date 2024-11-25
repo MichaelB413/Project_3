@@ -1,20 +1,19 @@
 const { faker } = require('@faker-js/faker');
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
-exports.seed = async function(knex) {
+exports.seed = async function (knex) {
+  await knex('details').del();
 
-    await knex('details').del();
+  const details = Array.from({ length: 1000 }, (_, index) => ({
+    user_id: index + 1,
+    checking_balance: faker.finance.amount({ min: 0, max: 10000000, dec: 2 }),
+    savings_balance: faker.finance.amount({ min: 0, max: 10000000, dec: 2 }),
+    debt_balance: faker.finance.amount({ min: 0, max: 10000000, dec: 2 }),
+  }));
 
-    const details = Array.from({ length: 1000 }, () => {
-      checking_balance: faker.finance.amount({min: 0, max: 1000000, dec:2, symbol: '$'});
-      savings_balance: faker.finance.amount({min: 0, max: 1000000, dec:2, symbol: '$'});
-      debt_balance: faker.finance.amount({min: 0, max: 1000000, dec:2, symbol: '$'});
-    })
-
-    await knex('details').insert(details)
-
+  await knex('details').insert(details);
 };
 
 
