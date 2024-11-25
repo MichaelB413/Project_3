@@ -7,7 +7,7 @@ function Home() {
         <div className="title">
             <h1>Game of Chance Bank</h1>
             <div className="subtitle">
-            <h3>"If we don't get ya today, we'll get ya tomorrow"</h3>
+            <h3>"If We Don't Get Ya Today, We'll Get Ya Tomorrow"</h3>
         </div>
         </div>
         
@@ -30,7 +30,7 @@ function Home() {
             </p>
             <p className="contact">
                 <Link to="/contact">Contact</Link>
-            </p>
+            </p> 
         </div>
         </>
     );

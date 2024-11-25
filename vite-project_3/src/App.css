@@ -33,7 +33,7 @@ body {
   /* color:rgb(217, 229, 217); */
   color: goldenrod;
   text-shadow: 2px 3px 4px black;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   margin-top: 10px;
 }
@@ -46,6 +46,7 @@ body {
   text-shadow: none;
   font-weight: bold;
   font-size: 20px;
+  font-style: italic;
   margin-top: 0;
   margin-bottom: 80;
   font-family: Arial, Helvetica, sans-serif;
@@ -56,6 +57,7 @@ body {
   list-style-type: none;
   column-gap: 90px;
 }
+
 .logIn {
   padding: 10px;
   border-radius: 20px;
