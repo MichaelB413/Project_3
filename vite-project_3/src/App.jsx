@@ -5,6 +5,7 @@ import Home from "./Pages/HomePage";
 import './App.css'
 import Button from "./components/Button";
 import RouletteWheel from './RouletteWheel';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       </div> */}
       {/* <Button/> */}
       <Router>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/logIn" element={<logIn />} />
