@@ -27,8 +27,8 @@ function App() {
       {/* <Button/> */}
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/logIn" element={<LogIn />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/logIn" element={<logIn />} />
           <Route path="/roulette" element={<RouletteWheel />} />
         </Routes>
       </Router>
