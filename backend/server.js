@@ -44,6 +44,39 @@ app.get('/admin', async (req, res) => {
     }
 });
 
+app.put('/details/:id', async (req, res) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+    try {
+        const result = await knex('details')
+            .where({ user_id: id })
+            .update(updatedData);
+        if (result === 0) {
+            return res.status(404).json({ message: 'Account details were not found' });
+        }
+        res.json({ message: 'Account details have been updated successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error updating details', error });
+    }
+});
+
+app.delete('/details/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await knex('details')
+            .where({ user_id: id })
+            .del();
+        if (result === 0) {
+            return res.status(404).json({ message: 'Account details were not found' });
+        }
+        res.json({ message: 'Account details deleted' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error deleting details', error });
+    }
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
