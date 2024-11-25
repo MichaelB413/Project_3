@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './gambling.css';
+import React, { useState } from 'react';
+import './stylegambling.css';
 
-const Wheel = ({ balance, updateBalance }) => {
+const RouletteWheel = ({ balance, updateBalance }) => {
     const [spinning, setSpinning] = 
 useState(false);
     const [result, setResult] = 
@@ -90,3 +90,5 @@ return (
     </div>
 );
 };
+
+export default RouletteWheel;

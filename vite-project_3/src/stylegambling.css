@@ -1,0 +1,111 @@
+.wheel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.wheel-base {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+}
+
+.wheel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #FFEB3B;
+    border: 15px solid #87CEEB;
+    transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    overflow: hidden;
+}
+
+.center-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #87CEEB;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    z-index: 2
+
+}
+
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
+    left: 50%;
+    top: 0;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.segment-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-15deg);
+}
+
+.segment-number {
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 40px;
+    margin-bottom: 60px;
+}
+
+.pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #4169E1;
+    font-size: 40px;
+    z-index: 3;
+}
+
+.spin-button {
+    padding: 12px 30px;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.spin-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.result {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.balance {
+    font-size: 18px;
+    color: #333;
+}
