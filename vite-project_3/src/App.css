@@ -33,16 +33,16 @@ body {
   /* color:rgb(217, 229, 217); */
   color: goldenrod;
   text-shadow: 2px 3px 4px black;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  margin-top: 2px;
   padding-bottom: 30px;
 }
 
 .subtitle {
   position: absolute;
   align-items: center;
-  top: 34%;
+  top: 49%;
   left: 35%;
   text-shadow: 1px 1px 4px rgb(120, 187, 120);
   font-weight: bold;
@@ -55,36 +55,41 @@ body {
 }
 
 .row {
-  list-style-type: none;
-  column-gap: 90px;
   align-items: center;
   align-self: center;
   text-align: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  align-content: center;
+  margin-bottom: 20px;
 }
 
 .logIn {
   padding: 10px;
   border-radius: 20px;
   width: 500px;
-  height: 100px;
+  height: 50px;
   font-size: 2rem;
   transform: rem;
-  background-color: rgb(67, 65, 68);
-  
+  background-color: rgb(2, 98, 13);
+  border-collapse: separate;
+  border-spacing: 15px;
+  align-self: center;
+  align-items: center;
+  text-align: center;
 }
 
-
+.row2 {
+  align-items: center;
+}
 .createAccount {
   padding: 10px;
   border-radius: 20px;
   width: 500px;
-  height: 100px;
+  height: 50px;
   font-size: 2rem;
   transform: rem;
-  background-color: rgb(44, 43, 45);
-
+  background-color: rgb(2, 98, 13);
+  border-collapse: separate;
+  border-spacing: 15px;
 }
 
 .info {
