@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    
 
 }
 
@@ -15,6 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .wheel {
@@ -28,8 +30,10 @@
     border: 15px solid #87CEEB;
     transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
     overflow: hidden;
+    
     box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
 }
+
 
 .center-star {
     position: absolute;
@@ -61,6 +65,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-left: 2px solid #87CEEB;
 }
 
 .segment-content {
@@ -76,6 +81,7 @@
     font-weight: bold;
     color: #333;
     pointer-events: none;
+    
   
 }
 
@@ -92,21 +98,21 @@
     font-size: 20px;
     margin-left: 40px;
     margin-bottom: 60px;
+    
 }
 
 .pointer {
     position: absolute;
-    top: -60px;
-    left: 50%;
+    top: -55px;
+    left: 54%;
     transform: translateX(-50%);
     color: #000000;
     font-size: 65px;
-    
     z-index: 3;
 }
 
 .spin-button {
-    margin: auto;
+    margin-top: 60px;
     z-index: 10;
     display: flex;
     justify-content: center;
