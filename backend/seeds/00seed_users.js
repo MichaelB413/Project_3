@@ -8,7 +8,8 @@ exports.seed = async function(knex) {
 
   const users = Array.from({ length: 1000 }, () => ({
     name: faker.person.fullName(),
-    email: faker.internet.email()
+    email: faker.internet.email(),
+    password: faker.internet.password()
   }))
 
   await knex('users').insert(users)}
