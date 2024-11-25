@@ -5,7 +5,7 @@ function Home() {
     return (
         <>
         <div className="title">
-            <h1>Game of Chance Bank</h1>
+            <h1>Gambler's Credit Union</h1>
             <div className="subtitle">
             <h3>"If We Don't Get Ya Today, We'll Get Ya Tomorrow"</h3>
         </div>
@@ -25,8 +25,8 @@ function Home() {
             <p className="about">
                 <Link to="/about">About</Link>
             </p>
-            <p className="careers">
-                <Link to="/careers">Careers</Link>
+            <p className="getHelp">
+                <Link to="/getHelp">Get Help</Link>
             </p>
             <p className="contact">
                 <Link to="/contact">Contact</Link>
