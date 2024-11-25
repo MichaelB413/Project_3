@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import './App.css'
 import Button from "./components/Button";
+import RouletteWheel from './RouletteWheel';
+
 
 function App() {
   //   const [color, setColor] = useState("grey")
@@ -27,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/logIn" element={<LogIn />} />
+          <Route path="/roulette" element={<RouletteWheel />} />
         </Routes>
       </Router>
       </>
