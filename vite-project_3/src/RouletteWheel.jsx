@@ -12,16 +12,18 @@ useState(0);
     const spinCost = 50;
 
 const segments = [
-    { type: 'win', amount: 500, color: '#EF94C0' },
-    { type: 'lose', amount: -100, color: '#EF94C0' },
-    { type: 'win', amount: 200, color: '#EF94C0' },
-    { type: 'lose', amount: -500, color: '#EF94C0' },
-    { type: 'win', amount: 100, color: '#EF94C0' },
-    { type: 'lose', amount: -150, color: '#EF94C0' },
-    { type: 'win', amount: 300, color: '#EF94C0' },
-    { type: 'lose', amount: -75, color: '#EF94C0' },
-    { type: 'win', amount: 400, color: '#EF94C0' },
-    { type: 'lose', amount: -300, color: '#EF94C0' },
+    { number: 1, icon: '🎁', amount: 500, color: '#EF94C0' },
+    { number: 2, icon: '📦', amount: -100, color: '#EF94C0' },
+    { number: 3, icon: '🎮', amount: 200, color: '#EF94C0' },
+    { number: 4, icon: '🥤', amount: -500, color: '#EF94C0' },
+    { number: 5, icon: '⭐', amount: 100, color: '#EF94C0' },
+    { number: 6, icon: '💰', amount: -150, color: '#EF94C0' },
+    { number: 7, icon: '⌛', amount: 300, color: '#EF94C0' },
+    { number: 8, icon: '🏆', amount: -75, color: '#EF94C0' },
+    { number: 9, icon: '🎯', amount: 400, color: '#EF94C0' },
+    { number: 10, icon: '📝', amount: -300, color: '#EF94C0' },
+    { number: 11, icon: '🎨', amount: 250, color: '#EF94C0' },
+    { number: 12, icon: '🎪', amount: 600, color: '#EF94C0' },
 ];
 
 const spinWheel = () => {
@@ -64,14 +66,15 @@ return (
                         key={index}
                         className="segment"
                         style={{
-                            transform: `rotate(${index * 30}deg)`,
+                            '--i': index,
                             backgroundColor: '#FFB6C1',
                             borderLeft: '2px solid #87CEEB'
                         }}
                     >
                         <div className="segment-content">
-                            <span className="segment-number">{index + 1}</span>
-                        </div>
+                            <span className="segment-icon">{segments[index].icon}</span>
+                            <span className="segment-number">{segments[index].number}</span>
+                    </div>
                     </div>
                 ))}
             </div>

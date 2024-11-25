@@ -1,4 +1,5 @@
 .wheel-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,10 +12,15 @@
     width: 400px;
     height: 400px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .wheel {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -22,6 +28,7 @@
     border: 15px solid #87CEEB;
     transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
     overflow: hidden;
+    box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
 }
 
 .center-star {
@@ -41,14 +48,19 @@
 
 }
 
+
 .segment {
     position: absolute;
     width: 50%;
     height: 50%;
-    transform-origin: 0% 100%;
-    left: 50%;
-    top: 0;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
+    background: #FFEB3B;
+    transform-origin: bottom right;
+    transform: rotate(calc(30deg * var(--i)));
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .segment-content {
@@ -56,10 +68,23 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: rotate(-15deg);
+    transform: rotate(-10deg);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    pointer-events: none;
+  
 }
+
+.segment-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+
+}
+
 
 .segment-number {
     color: #333;
@@ -71,18 +96,24 @@
 
 .pointer {
     position: absolute;
-    top: -10px;
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
-    color: #4169E1;
-    font-size: 40px;
+    color: #000000;
+    font-size: 65px;
+    
     z-index: 3;
 }
 
 .spin-button {
+    margin: auto;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 12px 30px;
     font-size: 18px;
-    background: linear-gradient(to bottom, #4CAF50, #45a049);
+    background: linear-gradient(to bottom, #fd9fd3, #d8e437);
     color: white;
     border: none;
     border-radius: 25px;
@@ -102,10 +133,10 @@
 .result {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #fff7f7;
 }
 
 .balance {
     font-size: 18px;
-    color: #333;
+    color: #fffdfd;
 }
