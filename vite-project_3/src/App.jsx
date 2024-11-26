@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Home from "./Pages/HomePage";
+import Home from "./pages/HomePage";
 import './App.css'
 import Button from "./components/Button";
 import RouletteWheel from './RouletteWheel';

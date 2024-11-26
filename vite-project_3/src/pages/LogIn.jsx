@@ -19,12 +19,13 @@ const LogIn = () => {
             });
 
             const data = await response.json();
+            console.log(data)
 
             if (!response.ok) {
                 throw new Error(data.message || 'Login failed');
             }
 
-            localStorage.setItem('userId', data.id);
+            localStorage.setItem('userId', data.userId);
 
             navigate('/roulette');
         } catch (error) {
