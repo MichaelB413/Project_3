@@ -1,5 +1,5 @@
 import React from "react";
-import "./fireworks.css";
+// import "./fireworks.css";
 
 const Fireworks = () => {
     return (

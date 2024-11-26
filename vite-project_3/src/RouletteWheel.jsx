@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './stylegambling.css';
+import Fireworks from "./fireworks.jsx";
 
 const RouletteWheel = () => {
     const [spinning, setSpinning] = useState(false);
@@ -9,6 +10,7 @@ const RouletteWheel = () => {
     const [transferAmount, setTransferAmount] = useState('');
     const [freeSpinUsed, setFreeSpinUsed] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [showFireworks, setShowFireworks] = useState(false);
     const spinCost = 50;
 
     const userId = localStorage.getItem('userId');
@@ -98,6 +100,10 @@ const RouletteWheel = () => {
         }
 
         setSpinning(true);
+        setShowFireworks(true);
+        setTimeout(() => {
+            setShowFireworks(false);
+        },3000);
         const newRotation = rotation + 1440 + Math.random() * 360;
         setRotation(newRotation);
 
