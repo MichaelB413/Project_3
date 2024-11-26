@@ -89,6 +89,9 @@ const RouletteWheel = () => {
     const spinWheel = () => {
         if (spinning || balances === null) return;
 
+        const spinSound = new Audio('/Jackpot.mp3');
+        spinSound.play();
+
         if (!freeSpinUsed) {
             setFreeSpinUsed(true);
         } else {
