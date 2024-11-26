@@ -32,7 +32,6 @@ const LogIn = () => {
             setError(error.message);
         }
     };
-
     return (
         <div>
             <h2>Log In</h2>
