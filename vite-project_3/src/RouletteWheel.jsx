@@ -5,9 +5,10 @@ const RouletteWheel = () => {
     const [spinning, setSpinning] = useState(false);
     const [result, setResult] = useState('');
     const [rotation, setRotation] = useState(0);
-    const [balances, setBalances] = useState(null);
+    const [balances, setBalances] = useState(null); // Null until fetched
     const [transferAmount, setTransferAmount] = useState('');
     const [freeSpinUsed, setFreeSpinUsed] = useState(false);
+    const [loading, setLoading] = useState(true); // Tracks API fetch state
     const spinCost = 50;
 
     // Get userId from localStorage
@@ -33,34 +34,34 @@ const RouletteWheel = () => {
     ];
 
     useEffect(() => {
-        if (!userId) {
-            console.log("User ID is undefined.");
-            return; 
-        }
-
         const fetchBalances = async () => {
             try {
                 const response = await fetch(`http://localhost:3000/details/${userId}`);
                 if (!response.ok) throw new Error('Failed to fetch balances.');
                 const data = await response.json();
-                console.log('API Response:', data); 
-                if (data) {
+                console.log('API Response:', data);
+    
+                if (data && data.length > 0) {
+                    const userDetails = data[0];
                     setBalances({
-                        checking_balance: parseFloat(data.checking_balance) || 0,
-                        savings_balance: parseFloat(data.savings_balance) || 0,
+                        checking_balance: parseFloat(userDetails.checking_balance) || 0,
+                        savings_balance: parseFloat(userDetails.savings_balance) || 0,
                     });
                 } else {
-                    console.error('Invalid data received');
+                    console.error('Invalid or empty data structure from API');
+                    setBalances({ checking_balance: 0, savings_balance: 0 });
                 }
             } catch (error) {
                 console.error('Error fetching balances:', error);
                 setBalances({ checking_balance: 0, savings_balance: 0 });
+            } finally {
+                setLoading(false);
             }
         };
-
+    
         fetchBalances();
     }, [userId]);
-
+    
     const updateBalances = async (newBalances) => {
         try {
             const response = await fetch(`http://localhost:3000/details/${userId}`, {
@@ -138,8 +139,8 @@ const RouletteWheel = () => {
         }
     };
 
-    if (balances === null) {
-        return <div>Loading balances...</div>;
+    if (loading || balances === null) {
+        return <div>Loading your balances...</div>;
     }
 
     return (
@@ -173,7 +174,7 @@ const RouletteWheel = () => {
             <button
                 className="spin-button"
                 onClick={spinWheel}
-                disabled={spinning}
+                disabled={spinning || loading}
             >
                 {spinning ? 'Spinning...' : freeSpinUsed ? `Spin ($${spinCost})` : 'Free Spin!'}
             </button>
@@ -197,5 +198,3 @@ const RouletteWheel = () => {
 };
 
 export default RouletteWheel;
-
-
