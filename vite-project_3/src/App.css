@@ -23,9 +23,9 @@ body {
   
 }
 
-.NavBar {
+/* .NavBar {
 list-style-type: none;
-}
+} */
 
 .title {
   font-family: montolca;
@@ -58,6 +58,8 @@ list-style-type: none;
 }
 
 .row {
+  position: relative;
+  left: 27%;
   align-items: center;
   align-self: center;
   text-align: center;
@@ -82,6 +84,8 @@ list-style-type: none;
 }
 
 .row2 {
+  position: relative;
+  left: 27%;
   align-items: center;
   list-style-type: none;
 }

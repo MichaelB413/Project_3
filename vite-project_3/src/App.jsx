@@ -5,7 +5,7 @@ import Home from "./pages/HomePage";
 import './App.css'
 import Button from "./components/Button";
 import RouletteWheel from './RouletteWheel';
-import NavBar from './components/NavBar';
+// import NavBar from './components/NavBar';
 import LogIn from './pages/LogIn';
 
 
@@ -28,7 +28,7 @@ function App() {
       </div> */}
       {/* <Button/> */}
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/logIn" element={<LogIn />} />
