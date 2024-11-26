@@ -7,6 +7,7 @@ import Button from "./components/Button";
 import RouletteWheel from './RouletteWheel';
 // import NavBar from './components/NavBar';
 import LogIn from './pages/LogIn';
+import GetHelp from './pages/GetHelp';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/getHelp" element={<GetHelp />} />
           <Route path="/logIn" element={<LogIn />} />
           <Route path="/roulette" element={<RouletteWheel />} />
         </Routes>
