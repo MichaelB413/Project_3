@@ -150,6 +150,7 @@ const RouletteWheel = () => {
 
     return (
         <div className="wheel-container">
+            {showFireworks && <Fireworks />}
             <div className="wheel-base">
                 <div
                     className="wheel"
