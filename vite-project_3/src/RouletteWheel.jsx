@@ -5,13 +5,12 @@ const RouletteWheel = () => {
     const [spinning, setSpinning] = useState(false);
     const [result, setResult] = useState('');
     const [rotation, setRotation] = useState(0);
-    const [balances, setBalances] = useState(null); // Null until fetched
+    const [balances, setBalances] = useState(null);
     const [transferAmount, setTransferAmount] = useState('');
     const [freeSpinUsed, setFreeSpinUsed] = useState(false);
-    const [loading, setLoading] = useState(true); // Tracks API fetch state
+    const [loading, setLoading] = useState(true);
     const spinCost = 50;
 
-    // Get userId from localStorage
     const userId = localStorage.getItem('userId');
 
     if (!userId) {
