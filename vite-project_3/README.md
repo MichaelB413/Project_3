@@ -1,8 +1,27 @@
-# React + Vite
+Welcome to Gambler's Credit Union
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app aims to make banking fun by including gambling mechanics
 
-Currently, two official plugins are available:
+to install the database, please run these commands in your terminal:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+mkdir -p $HOME/docker/volumes/postgres
+
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 \
+-v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
+
+docker exec -it <PSQL-Container-ID> bash
+
+psql -U postgres
+
+CREATE DATABASE bank;
+
+c\ bank
+
+This will create a dockerized database and log you into it to run queries
+
+next, within the backend, run these:
+
+npm install express knex pg dotenv cors
+npm install @faker-js/faker --save-dev
+
+You should now be ready to embark on a new financial journey!

@@ -33,7 +33,8 @@ const LogIn = () => {
         }
     };
     return (
-        <div>
+        <div className="logInP">
+            <link href="App.css" rel="stylesheet"></link>
             <h2>Log In</h2>
             <form onSubmit={handleLogin}>
                 <div>

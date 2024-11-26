@@ -8,7 +8,9 @@ import RouletteWheel from './RouletteWheel';
 // import NavBar from './components/NavBar';
 import LogIn from './pages/LogIn';
 import GetHelp from './pages/GetHelp';
-
+import CreateAccount from './pages/CreateAccount';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   //   const [color, setColor] = useState("grey")
@@ -33,6 +35,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/getHelp" element={<GetHelp />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/createAccount" element={<CreateAccount />} />
           <Route path="/logIn" element={<LogIn />} />
           <Route path="/roulette" element={<RouletteWheel />} />
         </Routes>
