@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Home from "./Pages/HomePage";
+import Home from "./pages/HomePage";
 import './App.css'
 import Button from "./components/Button";
 import RouletteWheel from './RouletteWheel';
 import NavBar from './components/NavBar';
+import LogIn from './pages/LogIn';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/logIn" element={<logIn />} />
+          <Route path="/logIn" element={<LogIn />} />
           <Route path="/roulette" element={<RouletteWheel />} />
         </Routes>
       </Router>

@@ -2,11 +2,18 @@ const express = require('express');
 const knexConfig = require('./knexfile');
 const knex = require('knex')(knexConfig.development);
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors({
+    origin: 'http://127.0.0.1:5173', 
+    methods: 'GET,POST,PUT,DELETE',  
+    credentials: true,
+}));
 
 app.use(express.json());
 
@@ -76,6 +83,28 @@ app.delete('/details/:id', async (req, res) => {
         res.status(500).json({ message: 'Error deleting details', error });
     }
 });
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await knex('users').where({ email }).first();
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Compare plaintext passwords
+        if (user.password !== password) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+        // Login successful
+        res.json({ message: 'Login successful', userId: user.id });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error during login', error });
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
