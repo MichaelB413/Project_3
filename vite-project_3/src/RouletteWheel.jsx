@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './stylegambling.css';
+import { Link } from 'react-router-dom'
+import ReturnPopup from './components/ReturnPopup';
 
 const RouletteWheel = () => {
     const [spinning, setSpinning] = useState(false);
@@ -9,6 +11,7 @@ const RouletteWheel = () => {
     const [transferAmount, setTransferAmount] = useState('');
     const [freeSpinUsed, setFreeSpinUsed] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [buttonPopup, setButtonPopup] = useState(false);
     const spinCost = 50;
 
     const userId = localStorage.getItem('userId');
@@ -192,6 +195,8 @@ const RouletteWheel = () => {
                 <button onClick={() => handleTransfer('toSavings')}>To Savings</button>
                 <button onClick={() => handleTransfer('toChecking')}>To Checking</button>
             </div>
+            <button type='button' onClick={() => setButtonPopup(true)}>Return Home</button>
+            <ReturnPopup trigger={buttonPopup} setTrigger={setButtonPopup}/>
         </div>
     );
 };
