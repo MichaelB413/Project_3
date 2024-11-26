@@ -41,6 +41,9 @@ app.get('/details/:id', async (req, res) => {
     }
 });
 
+
+
+
 app.get('/admin', async (req, res) => {
     try {
         const allUserInfo = await knex('details').select('*');
@@ -48,23 +51,6 @@ app.get('/admin', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({message: 'Error fetching all account balance information', error});
-    }
-});
-
-app.put('/details/:id', async (req, res) => {
-    const { id } = req.params;
-    const updatedData = req.body;
-    try {
-        const result = await knex('details')
-            .where({ user_id: id })
-            .update(updatedData);
-        if (result === 0) {
-            return res.status(404).json({ message: 'Account details were not found' });
-        }
-        res.json({ message: 'Account details have been updated successfully' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error updating details', error });
     }
 });
 
@@ -92,18 +78,52 @@ app.post('/login', async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Compare plaintext passwords
         if (user.password !== password) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Login successful
         res.json({ message: 'Login successful', userId: user.id });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error during login', error });
     }
 });
+
+
+app.put('/details/:id', async (req, res) => {
+    const { id } = req.params;
+    const { checking_balance, savings_balance } = req.body;
+
+    console.log('User ID:', id);
+    console.log('Checking Balance:', checking_balance);
+    console.log('Savings Balance:', savings_balance);
+
+    if (isNaN(id)) {
+        return res.status(400).json({ message: 'Invalid user ID' });
+    }
+
+    try {
+        if (isNaN(checking_balance) || isNaN(savings_balance)) {
+            return res.status(400).json({ message: 'Invalid balance values' });
+        }
+        const result = await knex('details')
+            .where({ user_id: id })
+            .update({
+                checking_balance,
+                savings_balance,
+            });
+
+        if (result === 0) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.json({ message: 'Balances updated successfully' });
+    } catch (error) {
+        console.error('Error updating balances:', error);
+        res.status(500).json({ message: 'Error updating balances', error });
+    }
+});
+
 
 
 app.listen(port, () => {

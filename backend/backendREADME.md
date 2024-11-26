@@ -1,6 +1,6 @@
 Run these
 
-npm install express knex pg dotenv
+npm install express knex pg dotenv cors
 npm install @faker-js/faker --save-dev
 
 

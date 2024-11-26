@@ -23,7 +23,9 @@ const LogIn = () => {
             if (!response.ok) {
                 throw new Error(data.message || 'Login failed');
             }
-//update this route later
+
+            localStorage.setItem('userId', data.id);
+
             navigate('/roulette');
         } catch (error) {
             setError(error.message);
