@@ -23,6 +23,9 @@ body {
   
 }
 
+.NavBar {
+list-style-type: none;
+}
 
 .title {
   font-family: montolca;
@@ -60,6 +63,7 @@ body {
   text-align: center;
   align-content: center;
   margin-bottom: 20px;
+  list-style-type: none;
 }
 
 .logIn {
@@ -79,6 +83,7 @@ body {
 
 .row2 {
   align-items: center;
+  list-style-type: none;
 }
 .createAccount {
   padding: 10px;
