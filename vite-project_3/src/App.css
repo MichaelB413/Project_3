@@ -124,6 +124,14 @@ list-style-type: none;
 
 /* Fireworks in get help page maybe */
 
+  .pyro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+    
+  }
   
   .pyro > .before, .pyro > .after {
     position: absolute;
