@@ -95,20 +95,29 @@ app.post('/createAccount', async (req, res) => {
     if (!name || !email || !password) {
         return res.status(400).json({ message: 'All fields are required' });
     }
-
     const existingUser = await knex('users').where('email', email).first();
     if (existingUser) {
-        return res.status(400).json({ message: 'Email is already taken' });
+        return res.status(400).json({ message: 'Email is already use' });
     }
 
     try {
-        const newUser = await knex('users').insert({ name, email, password });
-        res.status(201).json({ message: 'Account created successfully', userId: newUser[0] });
+        const newUser = await knex('users').insert({ name, email, password }).returning('id');
+        const userId = newUser[0].id;
+
+        await knex('details').insert({
+            user_id: userId,
+            checking_balance: 100,
+            savings_balance: 0,
+            debt_balance: 100,
+        });
+
+        res.status(201).json({ message: 'Account created successfully', userId });
     } catch (error) {
         console.error('Error creating user:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+
 
 
 
