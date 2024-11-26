@@ -101,6 +101,10 @@ list-style-type: none;
   border-spacing: 15px;
 }
 
+.logInP {
+ 
+}
+
 .info {
   justify-content: space-evenly;
   text-shadow: 1px 1px 1px black;

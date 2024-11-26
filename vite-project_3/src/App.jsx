@@ -8,6 +8,7 @@ import RouletteWheel from './RouletteWheel';
 // import NavBar from './components/NavBar';
 import LogIn from './pages/LogIn';
 import GetHelp from './pages/GetHelp';
+import CreateAccount from './pages/CreateAccount';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/getHelp" element={<GetHelp />} />
+          <Route path="/createAccount" element={<CreateAccount />} />
           <Route path="/logIn" element={<LogIn />} />
           <Route path="/roulette" element={<RouletteWheel />} />
         </Routes>
