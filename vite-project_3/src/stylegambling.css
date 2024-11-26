@@ -147,4 +147,36 @@
     color: #fffdfd;
 }
 
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #000;
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup p {
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 18px;
+}
+
+.popup button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
 

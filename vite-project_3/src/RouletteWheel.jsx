@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './stylegambling.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import ReturnPopup from './components/ReturnPopup';
 import Fireworks from "./fireworks.jsx";
 
@@ -14,6 +14,7 @@ const RouletteWheel = () => {
     const [loading, setLoading] = useState(true);
     const [buttonPopup, setButtonPopup] = useState(false);
     const [showFireworks, setShowFireworks] = useState(false);
+    const [showPopUp, setShowPopUp] = useState(false);
     const spinCost = 50;
 
     const userId = localStorage.getItem('userId');
@@ -65,7 +66,17 @@ const RouletteWheel = () => {
     
         fetchBalances();
     }, [userId]);
-    
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setShowPopUp(true);
+            const sound = new Audio('/Alarm.mp3');
+            sound.play();
+        }, 15000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
     const updateBalances = async (newBalances) => {
         try {
             const response = await fetch(`http://localhost:3000/details/${userId}`, {
@@ -109,7 +120,7 @@ const RouletteWheel = () => {
         setShowFireworks(true);
         setTimeout(() => {
             setShowFireworks(false);
-        },3000);
+        }, 3000);
         const newRotation = rotation + 1440 + Math.random() * 360;
         setRotation(newRotation);
 
@@ -205,10 +216,20 @@ const RouletteWheel = () => {
                 <button onClick={() => handleTransfer('toSavings')}>To Savings</button>
                 <button onClick={() => handleTransfer('toChecking')}>To Checking</button>
             </div>
-            <button type='button' onClick={() => setButtonPopup(true)}>Return Home</button>
-            <ReturnPopup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+            <button type="button" onClick={() => setButtonPopup(true)}>Return Home</button>
+            <ReturnPopup trigger={buttonPopup} setTrigger={setButtonPopup} />
+
+            {showPopUp && (
+                <div className="popup">
+                    <div className="popup-content">
+                        <p>Why aren't you gambling?</p>
+                        <button onClick={() => setShowPopUp(false)}>Close</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
 
 export default RouletteWheel;
+
